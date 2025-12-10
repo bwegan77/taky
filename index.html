@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taqueria Sol y Mar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Lato', 'sans-serif'],
+              display: ['Oswald', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                orange: '#F97316',
+                red: '#DC2626',
+                yellow: '#FBBF24',
+                dark: '#1F2937',
+                cream: '#FFF7ED',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html { scroll-behavior: smooth; }
+      .animate-fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+  </head>
+  <body class="bg-brand-cream text-brand-dark antialiased font-sans">
+    
+    <!-- Header -->
+    <header class="bg-brand-red text-white sticky top-0 z-50 shadow-md">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <!-- Logo -->
+          <a href="#" class="flex-shrink-0 cursor-pointer flex items-center gap-2" onclick="scrollToSection('home')">
+            <div class="bg-white text-brand-red p-1.5 rounded-full font-bold font-display text-2xl border-2 border-brand-yellow">
+              TS
+            </div>
+            <div>
+              <h1 class="font-display text-2xl tracking-wide uppercase font-bold text-white leading-none">
+                Taqueria
+              </h1>
+              <span class="text-brand-yellow font-display text-sm tracking-wider font-bold">
+                Sol y Mar
+              </span>
+            </div>
+          </a>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex space-x-8 items-center">
+            <a href="#menu" class="hover:text-brand-yellow transition font-medium uppercase tracking-wide">Menu</a>
+            <a href="#about" class="hover:text-brand-yellow transition font-medium uppercase tracking-wide">About</a>
+            <a href="#location" class="hover:text-brand-yellow transition font-medium uppercase tracking-wide">Location</a>
+            <a 
+              href="tel:+16195550199"
+              class="bg-brand-orange px-4 py-2 rounded-full font-bold uppercase text-sm hover:bg-brand-yellow hover:text-brand-red transition cursor-pointer shadow-lg"
+            >
+              Order Now
+            </a>
+          </nav>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden flex items-center">
+            <button
+              id="mobile-menu-btn"
+              class="text-white hover:text-brand-yellow focus:outline-none"
+            >
+              <i data-lucide="menu" class="w-7 h-7"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div id="mobile-menu" class="hidden md:hidden bg-brand-red border-t border-red-700">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a href="#menu" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-red-700 w-full text-left">Menu</a>
+          <a href="#about" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-red-700 w-full text-left">About</a>
+          <a href="#location" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-red-700 w-full text-left">Location</a>
+          <a 
+            href="tel:+16195550199"
+            class="block w-full text-center px-3 py-2 mt-4 bg-brand-orange text-white rounded-md font-bold"
+          >
+            Order Now
+          </a>
+        </div>
+        <div class="px-5 py-4 border-t border-red-700 flex flex-col gap-2 text-sm text-red-100">
+          <div class="flex items-center gap-2">
+            <i data-lucide="phone" class="w-4 h-4"></i> <span>(619) 555-0199</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="map-pin" class="w-4 h-4"></i> <span>4516 Mission Blvd, San Diego</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <div id="home" class="relative h-[600px] w-full overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div 
+          class="absolute inset-0 bg-cover bg-center"
+          style="background-image: url('https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?q=80&w=2000&auto=format&fit=crop');"
+        >
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-start text-white">
+          <span class="bg-brand-orange text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider mb-4 animate-fade-in-up">
+            San Diego's Best
+          </span>
+          <h1 class="font-display text-5xl md:text-7xl font-bold uppercase mb-4 leading-tight shadow-black drop-shadow-lg max-w-3xl">
+            Authentic Flavors <br/>
+            <span class="text-brand-yellow">Real Tradition</span>
+          </h1>
+          <p class="text-xl md:text-2xl mb-8 max-w-xl text-gray-200 font-medium drop-shadow-md">
+            Handmade tortillas, fresh salsas, and the best nachos in town.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a 
+              href="tel:+16195550199"
+              class="bg-brand-red hover:bg-red-700 text-white px-8 py-4 rounded-full font-bold uppercase tracking-wide transition transform hover:scale-105 shadow-lg flex items-center justify-center gap-2 group"
+            >
+              Order Now
+              <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+            <button 
+              onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})"
+              class="bg-white/10 hover:bg-white/20 backdrop-blur-md border-2 border-white text-white px-8 py-4 rounded-full font-bold uppercase tracking-wide transition"
+            >
+              View Menu
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu Section -->
+      <section id="menu" class="py-20 bg-brand-cream">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="font-display text-5xl font-bold text-brand-dark uppercase mb-4 tracking-tight">
+              Menu
+            </h2>
+            <div class="h-1.5 w-24 bg-brand-red mx-auto"></div>
+            <p class="mt-6 text-gray-600 max-w-2xl mx-auto font-light text-lg">
+              Authentic recipes, fresh ingredients, made to order.
+            </p>
+          </div>
+
+          <div class="space-y-20">
+            
+            <!-- Tacos -->
+            <div class="scroll-mt-24">
+              <h3 class="font-display text-3xl font-bold text-brand-red uppercase mb-8 border-b-4 border-brand-yellow inline-block pr-8">
+                Tacos
+              </h3>
+              <div class="grid gap-y-10">
+                <!-- Carne Asada Taco -->
+                <div class="group">
+                  <div class="flex items-baseline justify-between mb-2">
+                    <div class="flex items-center gap-3">
+                      <h4 class="font-display text-xl sm:text-2xl font-bold text-gray-900 uppercase tracking-wide">
+                        Carne Asada Taco
+                      </h4>
+                      <div class="flex gap-1" title="Popular">
+                        <i data-lucide="star" class="w-4 h-4 text-brand-yellow fill-current"></i>
+                      </div>
+                    </div>
+                    <div class="hidden sm:block flex-grow mx-4 border-b-2 border-dotted border-gray-300 relative -top-2 opacity-50"></div>
+                    <span class="font-display font-bold text-xl text-brand-red">$4.50</span>
+                  </div>
+                  <p class="text-gray-600 text-base font-light leading-relaxed max-w-2xl">
+                    Grilled steak, onions, cilantro, and guacamole on a handmade corn tortilla.
+                  </p>
+                </div>
+                
+                <!-- Al Pastor Taco -->
+                <div class="group">
+                  <div class="flex items-baseline justify-between mb-2">
+                    <div class="flex items-center gap-3">
+                      <h4 class="font-display text-xl sm:text-2xl font-bold text-gray-900 uppercase tracking-wide">
+                        Al Pastor Taco
+                      </h4>
+                      <div class="flex gap-1" title="Spicy">
+                        <i data-lucide="flame" class="w-4 h-4 text-brand-orange fill-current"></i>
+                      </div>
+                    </div>
+                    <div class="hidden sm:block flex-grow mx-4 border-b-2 border-dotted border-gray-300 relative -top-2 opacity-50"></div>
+                    <span class="font-display font-bold text-xl text-brand-red">$4.25</span>
+                  </div>
+                  <p class="text-gray-600 text-base font-light leading-relaxed max-w-2xl">
+                    Marinated pork, pineapple, onions, and cilantro.
+                  </p>
+                </div>
+
+                <!-- Baja Fish Taco -->
+                <div class="group">
+                  <div class="flex items-baseline justify-between mb-2">
+                    <div class="flex items-center gap-3">
+                      <h4 class="font-display text-xl sm:text-2xl font-bold text-gray-900 uppercase tracking-wide">
+                        Baja Fish Taco
+                      </h4>
+                      <div class="flex gap-1" title="Popular">
+                         <i data-lucide="star" class="w-4 h-4 text-brand-yellow fill-current"></i>
+                      </div>
+                    </div>
+                    <div class="hidden sm:block flex-grow mx-4 border-b-2 border-dotted border-gray-300 relative -top-2 opacity-50"></div>
+                    <span class="font-display font-bold text-xl text-brand-red">$4.75</span>
+                  </div>
+                  <p class="text-gray-600 text-base font-light leading-relaxed max-w-2xl">
+                    Beer-battered fish, cabbage, pico de gallo, and white sauce.
+                  </p>
+                </div>
+
+                <!-- Pollo Asado Taco -->
+                <div class="group">
+                  <div class="flex items-baseline justify-between mb-2">
+                    <div class="flex items-center gap-3">
+                      <h4 class="font-display text-xl sm:text-2xl font-bold text-gray-900 uppercase tracking-wide">
+                        Pollo Asado Taco
+                      </h4>
+                    </div>
+                    <div class="hidden sm:block flex-grow mx-4 border-b-2 border-dotted border-gray-300 relative -top-2 opacity-50"></div>
+                    <span class="font-display font-bold text-xl text-brand-red">$4.00</span>
+                  </div>
+                  <p class="text-gray-600 text-base font-light leading-relaxed max-w-2xl">
+                    Citrus-marinated grilled chicken with pico de gallo.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Burritos -->
+            <div class="scroll-mt-24">
+              <h3 class="font-display text-3xl font-bold text-brand-red uppercase mb-8 border-b-4 border-brand-yellow inline-block pr-8">
+                Burritos
+              </h3>
+              <div class="grid gap-y-10">
+                <!-- California Burrito -->
+                <div class="group">
+                  <div class="flex items-baseline justify-between mb-2">
+                    <div class="flex items-center gap-3">
+                      <h4 class="font-display text-xl sm:text-2xl font-bold text-gray-900 uppercase tracking-wide">
+                        California Burrito
+                      </h4>
+                      <div class="flex gap-1" title="Popular">
+                         <i data-lucide="star" class="w-4 h-4 text-brand-yellow fill-current"></i>
+                      </div>
+                    </div>
+                    <div class="hidden sm:block flex-grow mx-4 border-b-2 border-dotted border-gray-300 relative -top-2 opacity-50"></div>
+                    <span class="font-display font-bold text-xl text-brand-red">$11.50</span>
+                  </div>
+                  <p class="text-gray-600 text-base font-light leading-relaxed max-w-2xl">
+                    Carne asada, french fries, cheese, sour cream, and guacamole.
+                  </p>
+                </div>
+
+                <!-- Surf & Turf -->
+                <div class="group">
+                  <div class="flex items-baseline justify-between mb-2">
+                    <div class="flex items-center gap-3">
+                      <h4 class="font-display text-xl sm:text-2xl font-bold text-gray-900 uppercase tracking-wide">
+                        Surf & Turf Burrito
+                      </h4>
+                    </div>
+                    <div class="hidden sm:block flex-grow mx-4 border-b-2 border-dotted border-gray-300 relative -top-2 opacity-50"></div>
+                    <span class="font-display font-bold text-xl text-brand-red">$13.95</span>
+                  </div>
+                  <p class="text-gray-600 text-base font-light leading-relaxed max-w-2xl">
+                    Carne asada, shrimp, rice, cheese, and special sauce.
+                  </p>
+                </div>
+
+                <!-- Bean & Cheese -->
+                <div class="group">
+                  <div class="flex items-baseline justify-between mb-2">
+                    <div class="flex items-center gap-3">
+                      <h4 class="font-display text-xl sm:text-2xl font-bold text-gray-900 uppercase tracking-wide">
+                        Bean & Cheese Burrito
+                      </h4>
+                    </div>
+                    <div class="hidden sm:block flex-grow mx-4 border-b-2 border-dotted border-gray-300 relative -top-2 opacity-50"></div>
+                    <span class="font-display font-bold text-xl text-brand-red">$6.50</span>
+                  </div>
+                  <p class="text-gray-600 text-base font-light leading-relaxed max-w-2xl">
+                    Refried beans and cheddar cheese blend.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sides -->
+            <div class="scroll-mt-24">
+              <h3 class="font-display text-3xl font-bold text-brand-red uppercase mb-8 border-b-4 border-brand-yellow inline-block pr-8">
+                Sides
+              </h3>
+              <div class="grid gap-y-10">
+                <!-- Chips & Guac -->
+                <div class="group">
+                  <div class="flex items-baseline justify-between mb-2">
+                    <div class="flex items-center gap-3">
+                      <h4 class="font-display text-xl sm:text-2xl font-bold text-gray-900 uppercase tracking-wide">
+                        Chips & Guacamole
+                      </h4>
+                    </div>
+                    <div class="hidden sm:block flex-grow mx-4 border-b-2 border-dotted border-gray-300 relative -top-2 opacity-50"></div>
+                    <span class="font-display font-bold text-xl text-brand-red">$6.00</span>
+                  </div>
+                  <p class="text-gray-600 text-base font-light leading-relaxed max-w-2xl">
+                    Fresh made chips with our house guacamole.
+                  </p>
+                </div>
+
+                <!-- Carne Asada Fries -->
+                <div class="group">
+                  <div class="flex items-baseline justify-between mb-2">
+                    <div class="flex items-center gap-3">
+                      <h4 class="font-display text-xl sm:text-2xl font-bold text-gray-900 uppercase tracking-wide">
+                        Carne Asada Fries
+                      </h4>
+                      <div class="flex gap-1" title="Popular">
+                         <i data-lucide="star" class="w-4 h-4 text-brand-yellow fill-current"></i>
+                      </div>
+                    </div>
+                    <div class="hidden sm:block flex-grow mx-4 border-b-2 border-dotted border-gray-300 relative -top-2 opacity-50"></div>
+                    <span class="font-display font-bold text-xl text-brand-red">$12.50</span>
+                  </div>
+                  <p class="text-gray-600 text-base font-light leading-relaxed max-w-2xl">
+                    Fries topped with carne asada, guacamole, sour cream, and cheese.
+                  </p>
+                </div>
+                
+                 <!-- Elote -->
+                 <div class="group">
+                  <div class="flex items-baseline justify-between mb-2">
+                    <div class="flex items-center gap-3">
+                      <h4 class="font-display text-xl sm:text-2xl font-bold text-gray-900 uppercase tracking-wide">
+                        Elote (Street Corn)
+                      </h4>
+                      <div class="flex gap-1" title="Spicy">
+                        <i data-lucide="flame" class="w-4 h-4 text-brand-orange fill-current"></i>
+                      </div>
+                    </div>
+                    <div class="hidden sm:block flex-grow mx-4 border-b-2 border-dotted border-gray-300 relative -top-2 opacity-50"></div>
+                    <span class="font-display font-bold text-xl text-brand-red">$4.50</span>
+                  </div>
+                  <p class="text-gray-600 text-base font-light leading-relaxed max-w-2xl">
+                    Corn on the cob with mayo, cotija cheese, and chili powder.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Drinks -->
+            <div class="scroll-mt-24">
+              <h3 class="font-display text-3xl font-bold text-brand-red uppercase mb-8 border-b-4 border-brand-yellow inline-block pr-8">
+                Drinks
+              </h3>
+              <div class="grid gap-y-10">
+                <!-- Horchata -->
+                <div class="group">
+                  <div class="flex items-baseline justify-between mb-2">
+                    <div class="flex items-center gap-3">
+                      <h4 class="font-display text-xl sm:text-2xl font-bold text-gray-900 uppercase tracking-wide">
+                        Horchata
+                      </h4>
+                    </div>
+                    <div class="hidden sm:block flex-grow mx-4 border-b-2 border-dotted border-gray-300 relative -top-2 opacity-50"></div>
+                    <span class="font-display font-bold text-xl text-brand-red">$3.50</span>
+                  </div>
+                  <p class="text-gray-600 text-base font-light leading-relaxed max-w-2xl">
+                    House-made rice milk with cinnamon and vanilla.
+                  </p>
+                </div>
+
+                <!-- Jarritos -->
+                <div class="group">
+                  <div class="flex items-baseline justify-between mb-2">
+                    <div class="flex items-center gap-3">
+                      <h4 class="font-display text-xl sm:text-2xl font-bold text-gray-900 uppercase tracking-wide">
+                        Jarritos
+                      </h4>
+                    </div>
+                    <div class="hidden sm:block flex-grow mx-4 border-b-2 border-dotted border-gray-300 relative -top-2 opacity-50"></div>
+                    <span class="font-display font-bold text-xl text-brand-red">$3.00</span>
+                  </div>
+                  <p class="text-gray-600 text-base font-light leading-relaxed max-w-2xl">
+                    Assorted flavors: Mandarin, Tamarind, Lime.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col lg:flex-row items-center gap-12">
+            <!-- Image Grid -->
+            <div class="lg:w-1/2 grid grid-cols-2 gap-4">
+              <img 
+                src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=1000&auto=format&fit=crop" 
+                alt="Fresh authentic tacos" 
+                class="rounded-lg shadow-lg w-full h-64 object-cover mt-8"
+              />
+              <img 
+                src="https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?q=80&w=1000&auto=format&fit=crop" 
+                alt="Handmade tortillas and ingredients" 
+                class="rounded-lg shadow-lg w-full h-64 object-cover"
+              />
+            </div>
+
+            <!-- Content -->
+            <div class="lg:w-1/2">
+              <span class="text-brand-orange font-bold uppercase tracking-widest text-sm mb-2 block">
+                Our Story
+              </span>
+              <h2 class="font-display text-4xl font-bold text-brand-dark mb-6">
+                Bringing the Taste of Baja to San Diego
+              </h2>
+              <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                Founded in 2015, Taqueria Sol y Mar started as a small food truck near the beach. Our mission was simple: serve the most authentic Baja-style tacos using locally sourced ingredients and family recipes passed down through generations.
+              </p>
+              <p class="text-gray-600 mb-8 leading-relaxed">
+                From our famous hand-battered fish tacos to our slow-cooked carne asada, everything is made fresh daily. We believe that great food brings people together, and we invite you to join our family table.
+              </p>
+              
+              <div class="grid grid-cols-3 gap-6 text-center border-t pt-8 border-gray-100">
+                <div>
+                  <span class="block text-3xl font-display font-bold text-brand-red">15+</span>
+                  <span class="text-sm text-gray-500 uppercase tracking-wide">Taco Varieties</span>
+                </div>
+                <div>
+                  <span class="block text-3xl font-display font-bold text-brand-red">100%</span>
+                  <span class="text-sm text-gray-500 uppercase tracking-wide">Fresh Ingredients</span>
+                </div>
+                <div>
+                  <span class="block text-3xl font-display font-bold text-brand-red">9</span>
+                  <span class="text-sm text-gray-500 uppercase tracking-wide">Years Serving</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Location Section -->
+      <section id="location" class="py-20 bg-brand-dark text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Info -->
+            <div>
+              <h2 class="font-display text-4xl font-bold mb-8 text-white">
+                Visit Us
+              </h2>
+              
+              <div class="space-y-8">
+                <div class="flex items-start gap-4">
+                  <div class="bg-brand-red p-3 rounded-full">
+                    <i data-lucide="map-pin" class="text-white w-6 h-6"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-xl mb-1 text-brand-yellow">Location</h3>
+                    <p class="text-gray-300">4516 Mission Blvd</p>
+                    <p class="text-gray-300">San Diego, CA 92109</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div class="bg-brand-red p-3 rounded-full">
+                    <i data-lucide="phone" class="text-white w-6 h-6"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-xl mb-1 text-brand-yellow">Contact</h3>
+                    <p class="text-gray-300">(619) 555-0199</p>
+                    <p class="text-gray-300">hola@taqueriasolymar.com</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div class="bg-brand-red p-3 rounded-full">
+                    <i data-lucide="clock" class="text-white w-6 h-6"></i>
+                  </div>
+                  <div class="w-full max-w-xs">
+                    <h3 class="font-bold text-xl mb-2 text-brand-yellow">Hours</h3>
+                    <ul class="space-y-2">
+                      <li class="flex justify-between text-sm text-gray-300 border-b border-gray-700 pb-1">
+                        <span>Monday</span>
+                        <span>10:00 AM - 9:00 PM</span>
+                      </li>
+                      <li class="flex justify-between text-sm text-gray-300 border-b border-gray-700 pb-1">
+                        <span>Tuesday</span>
+                        <span>10:00 AM - 9:00 PM</span>
+                      </li>
+                      <li class="flex justify-between text-sm text-gray-300 border-b border-gray-700 pb-1">
+                        <span>Wednesday</span>
+                        <span>10:00 AM - 9:00 PM</span>
+                      </li>
+                      <li class="flex justify-between text-sm text-gray-300 border-b border-gray-700 pb-1">
+                        <span>Thursday</span>
+                        <span>10:00 AM - 10:00 PM</span>
+                      </li>
+                      <li class="flex justify-between text-sm text-gray-300 border-b border-gray-700 pb-1">
+                        <span>Friday</span>
+                        <span>10:00 AM - 11:00 PM</span>
+                      </li>
+                      <li class="flex justify-between text-sm text-gray-300 border-b border-gray-700 pb-1">
+                        <span>Saturday</span>
+                        <span>9:00 AM - 11:00 PM</span>
+                      </li>
+                      <li class="flex justify-between text-sm text-gray-300 border-b border-gray-700 pb-1">
+                        <span>Sunday</span>
+                        <span>9:00 AM - 9:00 PM</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Map Embed -->
+            <div class="h-full min-h-[400px] rounded-2xl overflow-hidden shadow-2xl relative bg-gray-800">
+               <iframe 
+                 width="100%" 
+                 height="100%" 
+                 style="border: 0; min-height: 400px;" 
+                 loading="lazy" 
+                 allowfullscreen 
+                 src="https://maps.google.com/maps?q=4516%20Mission%20Blvd%2C%20San%20Diego%2C%20CA%2092109&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                 title="Taqueria Sol y Mar Location"
+               ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+          <div class="text-center md:text-left">
+            <h2 class="font-display text-2xl font-bold uppercase tracking-wide">
+              Taqueria <span class="text-brand-red">Sol y Mar</span>
+            </h2>
+            <p class="text-gray-500 text-sm mt-2">© 2024 Taqueria Sol y Mar. All rights reserved.</p>
+          </div>
+
+          <div class="flex gap-6">
+            <a href="#" class="bg-gray-800 p-2 rounded-full hover:bg-brand-red transition text-white">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="bg-gray-800 p-2 rounded-full hover:bg-brand-red transition text-white">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="bg-gray-800 p-2 rounded-full hover:bg-brand-red transition text-white">
+              <i data-lucide="twitter" class="w-5 h-5"></i>
+            </a>
+          </div>
+
+          <div class="text-center md:text-right">
+             <div class="text-sm text-gray-500 space-x-4">
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition">Terms of Service</a>
+             </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Initialize Lucide Icons
+      lucide.createIcons();
+
+      // Mobile Menu Toggle
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+
+      btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+      });
+
+      // Close mobile menu when clicking a link
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.add('hidden');
+        });
+      });
+
+      // Smooth scrolling handling (basic anchor tags handle most, but just in case we need logic)
+      function scrollToSection(id) {
+        // Close menu if open
+        if (!menu.classList.contains('hidden')) {
+          menu.classList.add('hidden');
+        }
+      }
+    </script>
+  </body>
+</html>
